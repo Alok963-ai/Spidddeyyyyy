@@ -210,19 +210,7 @@ async def txt_handler(bot: Client, m: Message):
         
         # Create a fancy batch name
         fancy_batch_name = f"𝐁𝐚𝐭𝐜𝐡 𝐍𝐚𝐦𝐞: 𝗤𝘂𝗮𝗹𝗶𝘁𝘆".replace("𝗤𝘂𝗮𝗹𝗶𝘁𝘆", file_name_without_ext)
-        
-        # Send a message with the batch name and pin it
-        name_message = await bot.send_message(
-            m.chat.id,
-            f"📌 **Batch Name Pinned!** 📌\n"
-            f"🎨 {fancy_batch_name}\n"
-            f"✨ Stay organized with your pinned batches 🚀!"
-        )
-        await bot.pin_chat_message(m.chat.id, name_message.id)
-        
-        # Wait for 2 seconds before proceeding
-        await asyncio.sleep(2)
-        
+
     await editable.edit("**Enter Your Batch Name or send d for grabing from text filename.**")
     input1: Message = await bot.listen(editable.chat.id)
     raw_text0 = input1.text
